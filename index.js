@@ -9,15 +9,12 @@ module.exports={
                 { name:"Body", displayName:"Body"},
             ],
             delegate:function(fields){
-                    console.log('puhsalot1');
-                    console.log(fields);
                 var result=function(fields){
-                    console.log('puhsalot2');
                     console.log(fields);
                     $.ajax({type:'post', contentType:'application/json', dataType:'json', data:fields, url:"https://pushalot.com/api/sendmessage", success:function(result){
                         console.log(result.Description);
-                    },error:function(){
-                        console.log(arguments[0]);
+                    },error:function(err){
+                        console.log(err);
                     }});
                 };
                 result.fields=fields;
